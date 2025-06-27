@@ -1,13 +1,13 @@
 import boto3
 from botocore.exceptions import ClientError
 
-# Cấu hình MinIO
+# Cau hinh MinIO
 MINIO_ENDPOINT = "http://localhost:9000"
 ACCESS_KEY = "minioadmin"
 SECRET_KEY = "minioadmin"
 BUCKET_NAME = "voice-call"
 
-# Tạo client
+# Tao client
 s3 = boto3.client(
     's3',
     endpoint_url=MINIO_ENDPOINT,
@@ -15,11 +15,11 @@ s3 = boto3.client(
     aws_secret_access_key=SECRET_KEY,
 )
 
-# Tạo bucket nếu chưa có
+# Tao bucket
 try:
     s3.head_bucket(Bucket=BUCKET_NAME)
-    print(f"Bucket '{BUCKET_NAME}' đã tồn tại.")
+    print(f"Bucket '{BUCKET_NAME}' da ton tai roi")
 except ClientError:
     s3.create_bucket(Bucket=BUCKET_NAME)
-    print(f"Đã tạo bucket: '{BUCKET_NAME}'")
+    print(f"Da tao bucket: '{BUCKET_NAME}'")
 
