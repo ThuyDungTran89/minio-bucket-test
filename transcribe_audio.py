@@ -1,14 +1,14 @@
 import whisper
 
-# Đường dẫn đến file audio
+# Path file audio
 AUDIO_PATH = "D:/MinIO-Project/Test TD.mp3"
 
-# Load model (có thể dùng: tiny, base, small, medium, large)
+# Load model
 model = whisper.load_model("medium")
 
-# Nếu là tiếng Việt hoặc tiếng Anh thì chỉ rõ
+# Tieng Viet ghi VI
 result = model.transcribe(AUDIO_PATH, language="vi")
 
-# In kết quả
-print("\n=== Văn bản từ giọng nói ===")
+# In
+print("\n=== Van ban tu giong noi ===")
 print(result["text"])
